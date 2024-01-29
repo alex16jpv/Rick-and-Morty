@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import Home from "./pages/Home.tsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CharacterDetails from "./pages/CharacterDetails.tsx";
@@ -8,7 +8,7 @@ import CharacterDetails from "./pages/CharacterDetails.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />,
   },
   {
     path: "/character-details/:id",
