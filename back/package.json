@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:db": "json-server ./db/db.json --port 3001",
     "dev": "tsx watch ./src/index.ts"
   },
   "keywords": [],
@@ -12,7 +13,8 @@
   "type": "module",
   "dependencies": {
     "@apollo/server": "^4.10.0",
-    "graphql": "^16.8.1"
+    "graphql": "^16.8.1",
+    "json-server": "^1.0.0-alpha.23"
   },
   "devDependencies": {
     "@types/node": "^20.11.9",
