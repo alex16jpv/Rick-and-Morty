@@ -1,15 +1,15 @@
 export const commentsTypeDef = `#graphql
     type CommentType {
-        id: Int!
-        comment: String!
-        createdAt: String!
+        id: Int
+        comment: String
+        createdAt: String
     }
 `;
 
 export const commentInput = `#graphql
     input CommentInput {
         id: Int!
-        comment: String!
+        comment: String
     }
 `;
 
@@ -18,5 +18,5 @@ export const commentsQueries = `#graphql
 `;
 
 export const commentsMutations = `#graphql
-    createComment(input: CommentInput!): CommentType
+    createComment(input: CommentInput!): [CommentType]
 `;

@@ -1,9 +1,12 @@
 import * as queries from "./queries";
+import * as mutations from "./mutations";
 
 export default {
   Query: {
     ...queries,
   },
 
-  Mutation: {},
+  Mutation: {
+    ...mutations,
+  },
 };
