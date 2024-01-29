@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { SearchFrom } from "./components/SearchForm";
-import { getCharacters } from "./utils/helper";
+import { getCharacters } from "./services/rickAndMortyGraphql";
 
 function App() {
   const [filters, setFilters] = useState({ page: 1 });

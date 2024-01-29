@@ -1,18 +1,13 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getCharacterById } from "../utils/helper";
+import { useDetails } from "../hooks/useDetails";
 
 export default function CharacterDetails() {
-  const { id } = useParams();
-  const [character, setCharacter] = useState({});
-
-  useEffect(() => {
-    getCharacterById(Number(id)).then((data) => {
-      console.log(data);
-      setCharacter(data);
-    });
-  }, [id]);
-
+  const {
+    character,
+    comment,
+    comments,
+    handleChangeComment,
+    handleSubmitComment,
+  } = useDetails();
   return (
     <main className="flex w-screen h-screen bg-gray-100 place-content-center place-items-center">
       <section className="flex w-full max-w-3xl gap-10 p-4 bg-white border rounded-sm shadow-2xl">
@@ -33,6 +28,16 @@ export default function CharacterDetails() {
             Gender: <span className="text-red-300">{character.gender}</span>
           </p>
         </article>
+      </section>
+      <section>
+        <form onSubmit={handleSubmitComment}>
+          <input type="text" value={comment} onChange={handleChangeComment} />
+          <button type="submit">Send</button>
+        </form>
+
+        {comments?.map((comment) => (
+          <p key={comment.id}>{comment.comment}</p>
+        ))}
       </section>
     </main>
   );
