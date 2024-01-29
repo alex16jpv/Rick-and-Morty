@@ -52,7 +52,9 @@ function App() {
               src={character.image}
               alt={character.name}
             />
-            <h2 className="text-xl font-bold">{character.name}</h2>
+            <a href={`/character-details/${character.id}`}>
+              <h2 className="text-xl font-bold">{character.name}</h2>
+            </a>
             <p className="text-sm text-gray-500">{character.species}</p>
           </div>
         ))}

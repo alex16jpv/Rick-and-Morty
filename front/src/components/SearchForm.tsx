@@ -2,7 +2,7 @@ import SearchInput from "./SearchInput";
 import SelectInput from "./SelectInput";
 
 export function SearchFrom({ handleSubmit }: { handleSubmit: any }) {
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = (e: any) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
