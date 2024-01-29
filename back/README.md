@@ -10,6 +10,12 @@ this is the backend part of the project of rick and morty, made with Typescript 
 $ npm i
 ```
 
+### Start DB server
+
+```shell
+$ npm run start:db
+```
+
 ### Run
 
 ```shell
