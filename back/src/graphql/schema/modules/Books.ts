@@ -1,8 +1,8 @@
 export const booksTypeDefs = `#graphql
     type Book {
         title: String
-    author: String
-  }
+        author: String
+    }
 `;
 
 export const booksQueries = `#graphql
@@ -10,4 +10,5 @@ export const booksQueries = `#graphql
 `;
 
 export const booksMutations = `#graphql
+    books: [Book]
 `;
