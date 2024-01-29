@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getCharacterById } from "../services/rickAndMortyGraphql";
 import { createComment, getComments } from "../services/comments";
+import { CharacterType, CommentType } from "../utils/types";
 
 const COMMENT_INITIAL_VALUE = "";
 
 export function useDetails() {
   const { id } = useParams();
-  const [character, setCharacter] = useState({});
+  const [character, setCharacter] = useState({} as CharacterType);
   const [comment, setComment] = useState(COMMENT_INITIAL_VALUE);
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState([] as CommentType[]);
 
   useEffect(() => {
     getCharacterById(Number(id)).then((data) => {
@@ -23,11 +24,11 @@ export function useDetails() {
     });
   }, [id]);
 
-  const handleChangeComment = (event) => {
+  const handleChangeComment = (event: React.ChangeEvent<HTMLInputElement>) => {
     setComment(event.target.value);
   };
 
-  const handleSubmitComment = (event) => {
+  const handleSubmitComment = (event: React.FormEvent) => {
     event.preventDefault();
     if (!comment || comment === "") return;
 

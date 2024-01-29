@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { SearchFrom } from "./components/SearchForm";
 import { getCharacters } from "./services/rickAndMortyGraphql";
+import { CharacterType } from "./utils/types";
 
 function App() {
   const [filters, setFilters] = useState({ page: 1 });
@@ -14,7 +15,7 @@ function App() {
     });
   }, [filters]);
 
-  const handleSubmit = (formValues: any) => {
+  const handleSubmit = (formValues: CharacterType) => {
     console.log("handleSubmit", formValues);
     setFilters((prev) => {
       return {
@@ -42,7 +43,7 @@ function App() {
       <SearchFrom handleSubmit={handleSubmit} />
 
       <div className="flex flex-wrap justify-center">
-        {characters?.map((character: any) => (
+        {characters?.map((character: CharacterType) => (
           <div
             key={character.id}
             className="flex flex-col items-center justify-center w-full p-2 m-2 bg-white rounded-lg shadow-lg md:w-1/4"
