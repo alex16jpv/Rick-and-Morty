@@ -15,7 +15,7 @@ export default class Comments {
   async createComment(params) {
     await fetch(`${this.url}/comments`, {
       method: "POST",
-      body: JSON.stringify(params),
+      body: JSON.stringify({ ...params, createdAt: new Date() }),
       headers: {
         "Content-Type": "application/json",
       },
