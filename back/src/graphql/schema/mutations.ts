@@ -1,5 +1,5 @@
-import { booksMutations } from "./modules/Books";
+import { commentsMutations } from "./modules/Comments";
 
 export default `#graphql
-    ${booksMutations}
+    ${commentsMutations}
 `;

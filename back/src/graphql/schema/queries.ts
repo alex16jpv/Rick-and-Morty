@@ -1,7 +1,7 @@
-import { booksQueries } from "./modules/Books";
 import { charactersQueries } from "./modules/Characters";
+import { commentsQueries } from "./modules/Comments";
 
 export default `#graphql
-    ${booksQueries}
     ${charactersQueries}
+    ${commentsQueries}
 `;

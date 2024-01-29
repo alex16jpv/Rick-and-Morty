@@ -1,9 +1,9 @@
-import { booksTypeDefs } from "./modules/Books";
 import { charactersTypeDef } from "./modules/Characters";
+import { commentsTypeDef } from "./modules/Comments";
 
 export default `#graphql
     scalar JSON
 
-    ${booksTypeDefs}
     ${charactersTypeDef}
+    ${commentsTypeDef}
 `;
