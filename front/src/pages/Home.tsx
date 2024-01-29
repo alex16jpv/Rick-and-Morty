@@ -1,17 +1,9 @@
-import { useEffect, useState } from "react";
 import { SearchFrom } from "../components/SearchForm";
-import { getCharacters } from "../services/rickAndMortyGraphql";
+import useGetCharacters from "../hooks/useGetCharacters";
 import { CharacterType } from "../utils/types";
 
 function App() {
-  const [filters, setFilters] = useState({ page: 1 });
-  const [characters, setCharacters] = useState([]);
-
-  useEffect(() => {
-    getCharacters(filters).then((data) => {
-      setCharacters(data);
-    });
-  }, [filters]);
+  const { characters, setFilters } = useGetCharacters();
 
   const handleSubmit = (formValues: CharacterType) => {
     setFilters((prev) => {
