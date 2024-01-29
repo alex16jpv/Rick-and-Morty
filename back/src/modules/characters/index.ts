@@ -2,6 +2,18 @@
 import { CharacterInput, CharacterType } from "./types";
 
 export default class Characters {
+  async getCharacterById(id: number): Promise<CharacterType> {
+    const url = `https://rickandmortyapi.com/api/character/${id}`;
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Error fetching character");
+    }
+
+    const data: any = await response.json();
+
+    return data;
+  }
+
   async getCharacters({
     page,
     limit,

@@ -1,2 +1,2 @@
 export { books } from "./books";
-export { getCharacters } from "./characters";
+export { getCharacters, getCharacterById } from "./characters";

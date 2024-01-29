@@ -42,4 +42,5 @@ export const characterInput = `#graphql
 
 export const charactersQueries = `#graphql
     getCharacters(input: CharacterInput!): [CharacterType]
+    getCharacterById(id: Int!): CharacterType
 `;
