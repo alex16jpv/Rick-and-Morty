@@ -10,27 +10,26 @@ export function SearchFrom({ handleSubmit }: { handleSubmit: any }) {
   };
 
   return (
-    <form className="w-full p-3" onSubmit={handleOnSubmit}>
-      <div className="flex flex-wrap mb-2 -mx-3"></div>
-      <div className="flex flex-wrap gap-2 mb-2 -mx-3">
+    <form className="w-full px-3 py-3 md:px-0" onSubmit={handleOnSubmit}>
+      <div className="flex flex-wrap mb-2 -mx-3 gap-x-2 gap-y-2 place-items-center place-content-center">
         <SearchInput name="name" />
         <SearchInput name="species" />
         <SelectInput name="gender">
-          <option value="">All</option>
+          <option value="">All Genders</option>
           <option value="FEMALE">Female</option>
           <option value="MALE">Male</option>
           <option value="GENDERLESS">Genderless</option>
           <option value="UNKNOWN">Unknown</option>
         </SelectInput>
         <SelectInput name="status">
-          <option value="">All</option>
+          <option value="">All Status</option>
           <option value="ALIVE">Alive</option>
           <option value="DEAD">Dead</option>
           <option value="UNKNOWN">Unknown</option>
         </SelectInput>
         <button
           type="submit"
-          className="text-gray-700 bg-gray-200 border border-gray-200 rounded"
+          className="block px-4 py-3 leading-tight text-gray-700 bg-gray-200 border rounded appearance-none focus:outline-none focus:bg-white md:w-auto"
         >
           🔍
         </button>

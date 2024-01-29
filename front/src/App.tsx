@@ -42,21 +42,38 @@ function App() {
 
       <SearchFrom handleSubmit={handleSubmit} />
 
-      <div className="flex flex-wrap justify-center">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-2">
         {characters?.map((character: CharacterType) => (
           <div
             key={character.id}
-            className="flex flex-col items-center justify-center w-full p-2 m-2 bg-white rounded-lg shadow-lg md:w-1/4"
+            className="flex w-full p-3 bg-white border-b-2 border-blue-700 rounded-md shadow-xl gap-y-3 gap-x-6"
           >
             <img
-              className="w-1/2 rounded-full"
+              className="w-1/3 rounded-full aspect-square"
               src={character.image}
               alt={character.name}
             />
-            <a href={`/character-details/${character.id}`}>
-              <h2 className="text-xl font-bold">{character.name}</h2>
-            </a>
-            <p className="text-sm text-gray-500">{character.species}</p>
+            <div>
+              <a href={`/character-details/${character.id}`}>
+                <h2 className="text-2xl font-bold underline">
+                  {character.name}
+                </h2>
+              </a>
+              <p className="text-sm text-gray-500">{character.species}</p>
+              <p className="text-sm text-gray-500">{character.gender}</p>
+
+              {character.status === "Alive" && (
+                <p className="text-sm text-green-500">{character.status}</p>
+              )}
+
+              {character.status === "Dead" && (
+                <p className="text-sm text-red-500">{character.status}</p>
+              )}
+
+              {character.status === "unknown" && (
+                <p className="text-sm text-gray-500">{character.status}</p>
+              )}
+            </div>
           </div>
         ))}
       </div>
