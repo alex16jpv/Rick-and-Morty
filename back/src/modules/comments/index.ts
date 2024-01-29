@@ -1,13 +1,14 @@
 export default class Comments {
   url: string;
   constructor() {
-    this.url = "http://localhost:3001/comments";
+    this.url = "http://localhost:3001";
   }
 
   async getComments(params) {
-    const response = await fetch(`${this.url}/comments?id=${params.id}`);
-    const result = await response.json();
+    const response = await fetch(`${this.url}/comments?id=${params?.id}`);
+    if (!response.ok) return [];
 
+    const result = await response.json();
     return result;
   }
 
