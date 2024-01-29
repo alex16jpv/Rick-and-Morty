@@ -1,11 +1,18 @@
 export type CharacterType = {
+  id: number;
   name: string;
   image: string;
-  specie: string;
+  species: string;
+  status: string;
+  gender: string;
 };
 
 export type CharacterInput = {
-  sort: string;
+  sort?: string;
   page: number;
-  limit: number;
+  limit?: number;
+  name?: string;
+  status?: string;
+  species?: string;
+  gender?: string;
 };

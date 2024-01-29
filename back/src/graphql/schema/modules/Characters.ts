@@ -1,8 +1,11 @@
 export const charactersTypeDef = `#graphql
     type CharacterType {
+        id: Int
         name: String
         image: String
-        specie: String
+        species: String
+        status: String
+        gender: String
     }
 
 `;
@@ -13,10 +16,27 @@ export const characterInput = `#graphql
         NAME_DESC
     }
 
+    enum CharacterStatus {
+        ALIVE
+        DEAD
+        UNKNOWN
+    }
+
+    enum CharacterGender {
+        FEMALE
+        MALE
+        GENDERLESS
+        UNKNOWN
+    }
+
     input CharacterInput {
         page: Int!
         limit: Int
         sort: CharacterSort
+        gender: CharacterGender
+        name: String
+        species: String
+        status: CharacterStatus
     }
 `;
 

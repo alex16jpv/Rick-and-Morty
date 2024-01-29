@@ -1,4 +1,4 @@
-import charactersMock from "./mocks/characters";
+// import charactersMock from "./mocks/characters";
 import { CharacterInput, CharacterType } from "./types";
 
 export default class Characters {
@@ -6,18 +6,57 @@ export default class Characters {
     page,
     limit,
     sort,
+    gender,
+    name,
+    species,
+    status,
   }: CharacterInput): Promise<CharacterType[]> {
-    // TODO: implement fetch to get the characters
-    const characters = charactersMock?.results?.map((character) => {
+    let url = `https://rickandmortyapi.com/api/character/?page=${page}`;
+    const searchParams = [];
+    if (gender) {
+      searchParams.push(`gender=${gender.toLowerCase()}`);
+    }
+
+    if (name) {
+      searchParams.push(`name=${name}`);
+    }
+
+    if (species) {
+      searchParams.push(`species=${species}`);
+    }
+
+    if (status) {
+      searchParams.push(`status=${status.toLowerCase()}`);
+    }
+
+    if (searchParams.length > 0) {
+      url = `${url}&${searchParams.join("&")}`;
+    }
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error("Error fetching characters");
+    }
+
+    const data: any = await response.json();
+
+    const characters = data?.results?.map((character): CharacterType => {
       return {
         id: character.id,
         name: character.name,
         image: character.image,
-        specie: character.species,
+        species: character.species,
+        status: character.status,
+        gender: character.gender,
       };
     });
 
     let sortedCharacters = characters;
+    if (sortedCharacters?.length <= 0) {
+      return [];
+    }
+
     if (sort === "NAME_ASC") {
       sortedCharacters = characters.sort((a, b) =>
         a.name.localeCompare(b.name)
@@ -28,6 +67,6 @@ export default class Characters {
       );
     }
 
-    return sortedCharacters.slice(0, limit);
+    return sortedCharacters?.slice(0, limit);
   }
 }
