@@ -28,7 +28,7 @@ function App() {
   };
 
   return (
-    <div className="max-w-3xl p-2 m-auto bg-red-300">
+    <div className="max-w-3xl p-2 m-auto">
       <h1 className="my-2 text-4xl font-extrabold text-center">
         Rick and Morty
       </h1>
@@ -45,7 +45,7 @@ function App() {
         {characters?.map((character: any) => (
           <div
             key={character.id}
-            className="flex flex-col items-center justify-center w-1/4 p-2 m-2 bg-white rounded-lg shadow-lg"
+            className="flex flex-col items-center justify-center w-full p-2 m-2 bg-white rounded-lg shadow-lg md:w-1/4"
           >
             <img
               className="w-1/2 rounded-full"
