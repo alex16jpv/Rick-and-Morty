@@ -1,8 +1,8 @@
 # Welcome
 
-this is the backend part of the project of rick and morty, made with Typescript and Graphql.
+Welcome to the backend part of the Rick and Morty project, developed using TypeScript and GraphQL.
 
-## Start project
+## Getting Started
 
 ### Install dependencies
 
@@ -10,13 +10,13 @@ this is the backend part of the project of rick and morty, made with Typescript 
 $ npm i
 ```
 
-### Start DB server
+### Start Database Server
 
 ```shell
 $ npm run start:db
 ```
 
-### Run
+### Run the project
 
 ```shell
 $ npm run dev
